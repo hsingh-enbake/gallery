@@ -5,7 +5,7 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 #gem 'sqlite3'
-gem 'mysql2'
+#gem 'mysql2'
 
 gem 'acts-as-taggable-on'
 # Gems used only for assets and not required
@@ -33,9 +33,9 @@ gem 'jquery-rails'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
+gem 'pg'
 # To use debugger
- gem 'debugger'
+# gem 'debugger'
 gem 'will_paginate'
 gem 'devise'
 gem "paperclip"
