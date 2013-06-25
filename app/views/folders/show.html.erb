@@ -1,0 +1,27 @@
+
+<p> 
+  <h2><b>Folder Name:</b></h2>
+  <%= @folder.album_name %>
+  <hr>
+</p>
+ <h3>Photos</h3>
+ <table>
+ 	<tr>
+<% @folder.photos.each do |f| %>
+  <td>
+  	<table>
+  <%= link_to (image_tag (f.avatar.url(:medium)),{:size =>"60x60"}), f.avatar.url %>
+  <tr>
+  	<td>Tags: <%= raw f.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
+  	</tr>
+  </table>
+  </td>
+<% end %>
+</td>
+</table>
+
+<%= render "photos/form" %>
+<br/>
+<br/>
+<%= link_to 'Edit Folder', edit_folder_path(@folder) %> |
+<%= link_to 'Back', folders_path %>

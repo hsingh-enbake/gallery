@@ -1,0 +1,13 @@
+<% @photos.each do |photo| %>
+         
+              
+               <td>
+                   <table>
+                   <tr>
+                       <td><%= image_tag (photo.avatar.url(:medium)),{:size =>"100x100"} %></td></tr>
+                <tr><td>Tags: <%= raw photo.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td></tr>
+                </table>
+            </td>    
+                
+        
+    <% end %>

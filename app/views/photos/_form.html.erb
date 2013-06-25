@@ -1,0 +1,13 @@
+<%= form_for([@folder, @folder.photos.build]) do |f| %>
+  <div class="field">
+	<h2>Add new photo:</h2>
+  	<%= f.file_field :avatar %>
+</div>
+<div class="field"> 
+ 	<%= f.label :tag_list %><br>
+ 	<%= f.text_field :tag_list %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
