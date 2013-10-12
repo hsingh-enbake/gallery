@@ -1,11 +1,33 @@
 
-development: 
-  adapter: mysql2
-  encoding: utf8
-  database: gallery
+
+development: &defaults
+  adapter: postgresql
+  encoding: unicode
+  database: sam_dev
   pool: 5
   username: root
-  password: abida
+  password: root
+  host: localhost
+
+test:
+  <<: *defaults
+  database: sam_test
+
+staging:
+  <<: *defaults
+  database: sam_core
+
+production:
+  <<: *defaults
+  database: sam_production
+
+#development: 
+#  adapter: mysql2
+#  encoding: utf8
+#  database: gallery
+#  pool: 5
+#  username: root
+#  password: abida
 
 
 #  adapter: postgresql
