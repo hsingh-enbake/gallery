@@ -35,7 +35,7 @@ gem "less-rails"
 # gem 'capistrano'
 #gem 'pg'
 # To use debugger
- gem 'debugger'
+#gem 'debugger'
 gem 'will_paginate'
 gem 'devise'
 gem "paperclip"
