@@ -5,8 +5,8 @@ development: &defaults
   encoding: unicode
   database: sam_dev
   pool: 5
-  username: root
-  password: root
+  username: harry
+  password: abida
   host: localhost
 
 test:
