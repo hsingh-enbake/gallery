@@ -1,0 +1,26 @@
+<% content_for :head do %>
+<title>partial folder form</title>
+<% end %>
+
+
+<%= form_for @folder,  :html => { :multipart => true } do |folder_form| %>
+ <% if @folder.errors.any? %>
+ <div id="errorExplanation">
+   <h2><%= pluralize(@folder.errors.count, "error") %> prohibited this post from being saved:</h2>
+   	<ul>
+	   <% @folder.errors.full_messages.each do |msg| %>
+    	 <li><%= msg %></li>
+   		<% end %>
+   	</ul>
+ </div>
+<% end %>
+
+ <div class="field">
+   <%= folder_form.label :Album_name %><br />
+   <%= folder_form.text_field :album_name %>
+ </div>
+ 
+ <div class="actions">
+   <%= folder_form.submit  'Create Album'%>
+ </div>
+ <% end %>
