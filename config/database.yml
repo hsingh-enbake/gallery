@@ -20,27 +20,3 @@ staging:
 production:
   <<: *defaults
   database: sam_production
-
-#development: 
-#  adapter: mysql2
-#  encoding: utf8
-#  database: gallery
-#  pool: 5
-#  username: root
-#  password: abida
-
-
-#  adapter: postgresql
-#  encoding: utf8
-#  database: gallery_development1
-#  pool: 5
-#  username: harry
-#  password: abida
-#
-#production:
-#  adapter: postgresql
-#  encoding: utf8
-#  database: gallery_development1
-#  pool: 5
-#  username: harry
-#  password: abida
