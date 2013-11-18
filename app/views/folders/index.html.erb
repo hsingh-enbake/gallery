@@ -19,7 +19,11 @@
     	<tr>
     		<td>
     			<%= link_to 'Edit', edit_folder_path(folder) %>
-       			<%= link_to 'Destroy', folder, :confirm => 'Are you sure?',:method => :delete %>
+       		  | <%= link_to 'Destroy', folder, :confirm => 'Are you sure?',:method => :delete %><br>
+       		    <%= pluralize folder.reputation_for(:like).to_i, "Likes" %>
+       		  | <%= pluralize folder.reputation_for(:unlike).to_i, "Unlikes" %><br>
+			    <%= link_to "Like", vote_folder_path(folder, type: "like"), method: "post" %>
+              | <%= link_to "Unlike", vote_folder_path(folder, type: "unlike"), method: "post" %>			
 			</td>
 		</tr>
 </table>

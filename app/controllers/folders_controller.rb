@@ -68,4 +68,15 @@ class FoldersController < ApplicationController
       format.json { head :no_content }
       end
   end
+  def vote
+    @folder = Folder.find(params[:id])
+    if params[:type] == "like"
+      value = @folder.reputation_for(:like).to_i + 1
+      @folder.add_or_update_evaluation(:like, value, current_user)
+    else
+      value = @folder.reputation_for(:unlike).to_i + 1
+      @folder.add_or_update_evaluation(:unlike, value, current_user)
+    end  
+    redirect_to :back, notice: "Thank you for voting"
   end
+end

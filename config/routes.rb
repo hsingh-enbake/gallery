@@ -4,6 +4,7 @@ Gallery::Application.routes.draw do
   match 'tags/:tag' => 'photos#index', :as => 'tag'
   resources :folders do
     resources :photos
+    member { post :vote }
   end
   get "home/index"
 

@@ -39,3 +39,5 @@ gem 'pg'
 gem 'will_paginate'
 gem 'devise'
 gem "paperclip"
+gem 'activerecord-reputation-system'
+

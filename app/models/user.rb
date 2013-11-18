@@ -7,7 +7,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
    
     has_many :folders, :dependent => :destroy
-  
+    
+    has_reputation :votes, 
+        :source => { :reputation => :folder_likes }, 
+        :source => { :reputation => :folder_unlikes} 
+
+      has_reputation :folder_likes, 
+        :source => { :reputation => :like, :of => :folders } 
+      has_reputation :folder_unlikes, 
+        :source => { :reputation => :unlike, :of => :folders } 
   # Setup accessible (or protected) attributes for your model
   
    accepts_nested_attributes_for :folders, :allow_destroy => :true,
