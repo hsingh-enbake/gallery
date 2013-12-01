@@ -26,7 +26,7 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       if @folder.update_attributes(params[:folder])
-        format.html { redirect_to @folder, notice: 'Folder was successfully updated.' }
+        format.html { redirect_to @folder, alert: 'Folder was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -40,7 +40,7 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       if @folder.save
-        format.html { redirect_to @folder, notice: 'Folder was successfully created.' }
+        format.html { redirect_to @folder, alert: 'Folder was successfully created.' }
         format.json { render json: @folder, status: :created, location: @folder }
       else
         format.html { render action: "new" }

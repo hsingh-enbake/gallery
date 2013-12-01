@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131118144956) do
+ActiveRecord::Schema.define(:version => 20131130073614) do
+
+  create_table "exibitions", :force => true do |t|
+    t.string   "name"
+    t.float    "price"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "image_id"
+  end
 
   create_table "folders", :force => true do |t|
     t.string   "album_name"
@@ -30,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20131118144956) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.float    "price"
   end
 
   add_index "photos", ["folder_id"], :name => "index_photos_on_folder_id"

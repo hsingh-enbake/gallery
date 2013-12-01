@@ -1,13 +1,24 @@
-<%= form_for([@folder, @folder.photos.build]) do |f| %>
-  <div class="field">
-	<h3>Add new photo:</h3>
-  	<%= f.file_field :avatar %>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Modal header</h3>
+	</div>
+	<%= form_for([@folder, @folder.photos.build]) do |f| %>
+	<div class="modal-body">
+		<div class="field">
+		  	<%= f.file_field :avatar %><br>
+		  	<%= f.label :Price %>
+	  		<%= f.text_field :price%><br />
+		</div>
+		<div class="field"> 
+	 		<%= f.label :tag_list %>
+	 		<%= f.text_field :tag_list %>
+	  	</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button class="btn btn-primary">Save changes</button>
+	</div>
+	<% end %>
 </div>
-<div class="field"> 
- 	<%= f.label :tag_list %><br>
- 	<%= f.text_field :tag_list %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

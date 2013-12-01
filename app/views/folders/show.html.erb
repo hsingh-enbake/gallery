@@ -1,26 +1,38 @@
 
-<p> 
-  <h2><b>Folder Name:</b><%= @folder.album_name %></h2>
-  <hr>
-</p>
- <h3>Photos</h3>
- <table>
- 	<tr>
-<% @folder.photos.each do |f| %>
-  <td>
-  	<table>
-  <%= link_to (image_tag (f.avatar.url(:medium)),{:size =>"200x200"}), f.avatar.url %>
-  <tr>
-  	<td>Tags: <%= raw f.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
-  	</tr>
-  </table>
-  </td>
-<% end %>
-</td>
-</table>
+<div class="page-header pull-center">
+  <h1> <%= @folder.album_name%></h1>
+</div>
 
+	<h3>Photos</h3>
+ 	<div id = 'photos_show' >
+	 	<table>
+	 		<tr>
+				<% @folder.photos.each do |f| %>
+	    		<td>
+	  				<table>
+	  					<%= link_to (image_tag (f.avatar.url(:medium)),{:size =>"200x200"}), f.avatar.url %>
+	  					<tr>
+	  						<td>Price: <%= f.price unless !f.price%></td>
+	  					</tr>
+	  					<tr>
+	  						<td>Tags: <%= raw f.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
+	  					</tr>
+	  					<tr>
+	  					    <td><%= link_to 'Add to Exibition',{ :controller => :exibition, :action=> 'create',:photo => f}, :method => :post%><td>
+	  				    </tr>
+	  				</table>
+	  			</td>
+				<% end %>
+			</tr>
+		</table>
+    </div>
 <%= render "photos/form" %>
 <br/>
 <br/>
+<div class="btn-group">
+  <button type="button" id= "add_photo" class="btn btn-default ">Add New Photo</button>
+</div>
+<br />
 <%= link_to 'Edit Folder', edit_folder_path(@folder) %> |
 <%= link_to 'Back', folders_path %>
+
